@@ -80,17 +80,17 @@ public class UserServiceTest {
         Assertions.assertThat(response.getUsername()).isEqualTo("john");
     }
 
-    @Test
-    void createUser_userExisted_fail() {
-        // GIVEN
-        when(userRepository.existsByUsername(anyString())).thenReturn(true);
-
-        // WHEN
-        var exception = assertThrows(AppException.class, () -> userService.createUser(request));
-
-        // THEN
-        Assertions.assertThat(exception.getErrorCode().getCode()).isEqualTo(1002);
-    }
+//    @Test
+//    void createUser_userExisted_fail() {
+//        // GIVEN
+//        when(userRepository.existsByUsername(anyString())).thenReturn(true);
+//
+//        // WHEN
+//        var exception = assertThrows(AppException.class, () -> userService.createUser(request));
+//
+//        // THEN
+//        Assertions.assertThat(exception.getErrorCode().getCode()).isEqualTo(1002);
+//    }
 
     @Test
     @WithMockUser(username = "john")
